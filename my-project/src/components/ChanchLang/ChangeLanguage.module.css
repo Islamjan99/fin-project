@@ -1,0 +1,5 @@
+.changeLanguage__container {
+	width: 70px;
+	display: flex;
+	justify-content: space-between;
+}

@@ -1,0 +1,30 @@
+.navBar__wrapper {
+	max-width: 927px;
+	width: 100%;
+	display: flex;
+}
+.navBar__container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.navBar__block {
+	width: 248px;
+	display: flex;
+	justify-content: space-between;
+	margin-right: 40px;
+}
+.inp__block {
+	display: flex;
+}
+
+.inp__block input {
+	margin-left: 20px;
+}
+
+.navBar__nav {
+	width: 83px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

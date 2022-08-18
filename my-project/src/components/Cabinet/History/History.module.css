@@ -1,0 +1,72 @@
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+.block {
+    width: 74rem;
+    height: 35rem;
+    margin: 0 auto;
+    border: 1px solid;
+    overflow-y: auto;
+    
+    
+}
+.block__column {
+
+}
+.block__name {
+    display: flex;
+}
+.flex__date, .flex__name, .flex__lastName, .flex__phone, .flex__info, .flex__xx {
+    padding: .5rem .5rem .5rem 1rem;
+    border-bottom: 1px solid;
+    font-weight: 700;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+}
+.flex__inf {
+    border-right: 1px solid;
+    width: 19rem;
+}
+
+.flex__x {
+    width: 18rem;
+}
+.flex__dat, .flex__nam, .flex__lastNam, .flex__phon {
+    border-right: 1px solid;
+    width: 9rem;
+}
+.itemDate, .itemName, .itemLastName, .itemPhone, .itemLastName, .itemInfo, .itemAddres {
+    border-bottom: 1px solid;
+}
+.itemDate p, .itemName p, .itemLastName p, .itemPhone p, .itemLastName p  {
+    margin-left: .6rem;
+    padding-bottom: 4.5rem;
+    font-weight: 600;
+}
+.itemAddres p {
+    margin-left: .6rem;
+    font-weight: 600;
+}
+.flex__lastName {
+    padding: .5rem;
+}
+
+.flex__phone {
+    padding: .5rem;
+}
+.flex__info {
+    padding: .5rem;
+}
+.itemInfo {
+    padding-left: .6rem;
+    font-weight: 600;
+    
+}
+.itemInfoLength {
+    height: 97px;
+    overflow-y: auto;
+}

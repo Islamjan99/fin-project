@@ -1,0 +1,82 @@
+.container {
+    margin: 2rem auto;
+    width: 1200px;
+}
+.product__block {
+    margin: 0 auto;
+    display: flex;
+    
+    flex-wrap: wrap;
+}
+.product__item {
+    margin-bottom: 4rem;
+}
+
+.item_img {
+    border-radius: 5%;
+}
+.art {
+    width: 100%;
+    margin: 0 auto;
+    opacity: .7;
+    display: flex;
+    justify-content: center;
+}
+.name__block{
+    display: flex;
+    justify-content: space-between;
+}
+.item_name {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    width: 10rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.favorites {
+    margin-top: 1rem;
+    width: 1.7rem;
+    height: 1.7rem;
+}
+.price__block {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    margin-left: .5rem;
+}
+.item__price {
+    font-weight: 600;
+}
+.price {
+    margin-left: 15px;
+    opacity: .7;
+    text-decoration: line-through;
+}
+.priceee {
+    width: 17rem;
+    display: flex;
+}
+.discountPrice {
+    font-family: 'Montserrat', sans-serif;
+}
+.discount {
+    margin-left: 15px;
+    color: #822C41;
+    font-weight: 700;
+}
+.item_btn {
+    display: flex;
+    width: 20rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn {
+    border: 1px solid #ffffff;
+    background: none;
+    font-size: 1.3rem;
+    padding: .4rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn:hover {
+    border: 1px solid rgb(110, 204, 98);
+    padding: .4rem;
+}

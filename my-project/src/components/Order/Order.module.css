@@ -1,0 +1,109 @@
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.order__block {
+    display: flex;
+    justify-content: space-around;
+}
+.block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 27rem;
+}
+.name {
+    font-weight: 600;
+}
+.email {
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+.h3 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.h4{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+.personal__data {
+    width: 20rem;
+}
+.order__form {
+    width: 32rem;
+    display: flex;
+    justify-content: space-between;
+}
+.inp__checkbox {
+    margin-left: .2rem;
+}
+.inp {
+    width: 12rem;
+    margin: 0 0 1rem 0;
+}
+.delivery__form {
+    width: 15rem;
+    margin: 0 0 1rem 10rem;
+}
+.block__prod {
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+}
+.line {
+    border-bottom: 1px solid #808080 ;
+
+}
+.block__order {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn__order {
+    display: flex;
+    font-size: 2rem;
+    padding: 1rem;
+    background: none;
+    border: 1px solid #ffffff;
+    margin: 3rem 0 5rem 0;
+}
+.btn__order:hover {
+    border: 1px solid #83BD1A;
+    margin: 3rem 0 5rem 0;
+    padding: 1rem;
+}
+.inp__address {
+    display: flex;
+    flex-direction: column;
+    width: 12rem;
+}
+.line__info {
+    margin: .35rem 0 0 0;
+    font-weight: 600;
+}
+.p {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0 1rem 0 ;
+}
+.i {
+    margin: .5rem;
+}
+.pod {
+    width: 12rem;
+}
+.order__product {
+    margin-top: 5rem;
+}
+.order__info {
+    margin: 0 auto;
+    width: 50rem;
+}
+.sum {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+}

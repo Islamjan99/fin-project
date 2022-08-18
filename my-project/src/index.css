@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Rubik', sans-serif;
+	font-style: normal;
+}
+.App {
+	max-width: 1440px;
+	width: 100%;
+	margin: 0 auto;
+}
+Link {
+	text-decoration: none;
+	background: none;
+}
+body {
+	height: 150vh;
+}
+a {
+	text-decoration: none;
+}
+dl,
+ol,
+ul {
+	margin-top: 0;
+	margin-bottom: 0rem;
+	padding-left: 0rem;
+}
+p {
+	margin-top: 0;
+	margin-bottom: 0rem;
+}
+
+/* Скрытие стрелок для браузера Chrome: */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+/* Скрытие стрелок для браузера Firefox: */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+input[type='number']:hover,
+input[type='number']:focus {
+	-moz-appearance: number-input;
+}
+
+/* Скрытие стрелок для браузера для остальных браузеров*/
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
