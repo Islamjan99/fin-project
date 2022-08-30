@@ -8,12 +8,23 @@ import Pagin from '../Pagin'
 import { useLocation } from 'react-router-dom'
 
 const Catalog = observer(() => {
-	const location = useLocation()
+	const locations = useLocation()
+	const [location, setLocation] = useState()
 	const { device } = useContext(Context)
-	const [product, setProduct] = useState()
+	const [categorys, setCategorys] = useState([])
+	const [product, setProduct] = useState([])
+
+	const getInfo = () => {
+		setCategorys(device.categorys)
+		console.log(device.categorys)
+	}
+
 	useEffect(() => {
-		setProduct(location.pathname)
-	}, [])
+		setLocation(locations.pathname)
+		if (categorys.length < 1) {
+			getInfo()
+		}
+	}, [categorys])
 
 	return (
 		<div className={style.container}>

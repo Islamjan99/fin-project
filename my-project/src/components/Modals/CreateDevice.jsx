@@ -4,8 +4,8 @@ import { Button, Dropdown, Form, Row, Col } from 'react-bootstrap'
 import { Context } from '../../index'
 import {
 	createDevice,
-	fetchBrands,
 	fetchCategorys,
+	fetchFloors,
 	fetchTypes,
 } from '../../Http/DeviceAPI'
 import { observer } from 'mobx-react-lite'
@@ -24,7 +24,7 @@ const CreateDevice = observer(({ show, onHide }) => {
 
 	useEffect(() => {
 		fetchTypes().then(data => device.setTypes(data))
-		fetchBrands().then(data => device.setBrands(data))
+		fetchFloors().then(data => device.setFloors(data))
 		fetchCategorys().then(data => device.setCategorys(data))
 	}, [device])
 
@@ -81,12 +81,12 @@ const CreateDevice = observer(({ show, onHide }) => {
 					</Dropdown>
 					<Dropdown className='mt-2 mb-2'>
 						<Dropdown.Toggle>
-							{device.selectedBrand.name || 'Выберите пол'}
+							{device.setSelectedFloor.name || 'Выберите пол'}
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
-							{device.brands.map(brand => (
+							{device.floors.map(brand => (
 								<Dropdown.Item
-									onClick={() => device.setSelectedBrand(brand)}
+									onClick={() => device.setSelectedFloor(brand)}
 									key={brand.id}
 								>
 									{brand.name}

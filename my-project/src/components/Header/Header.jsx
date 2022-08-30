@@ -11,7 +11,12 @@ import {
 	FAVORITES_ROUTE,
 	LOGIN_ROUTE,
 } from '../../Utils/Consts'
-import { fetchDevicees, fetchDevices, fetchTypes } from '../../Http/DeviceAPI'
+import {
+	fetchCategorys,
+	fetchDevicees,
+	fetchDevices,
+	fetchTypes,
+} from '../../Http/DeviceAPI'
 import { authuser, getRole } from '../../Http/UserAPI'
 import Search from '../Search/Search'
 import Img from '../UI/Img'
@@ -29,6 +34,7 @@ const Header = observer(() => {
 
 	useEffect(() => {
 		fetchTypes().then(data => device.setTypes(data))
+		fetchCategorys().then(data => device.setCategorys(data))
 		getRole().then(data => user.setRoleToken(data.token))
 		fetchDevicees().then(data => device.setDevicees(data.rows))
 		fetchDevicees(device.page, 9).then(data => {
@@ -36,14 +42,14 @@ const Header = observer(() => {
 		})
 		fetchDevices(
 			device.selectedType.id,
-			device.selectedBrand.id,
+			// device.selectedFloor.id,
 			device.page,
 			9
 		).then(data => {
 			device.setDevices(data.rows)
 			device.setTotalCount(data.count)
 		})
-	}, [device, device.page, device.selectedType, device.selectedBrand])
+	}, [device, device.page, device.selectedType, device.setSelectedFloor])
 
 	useEffect(() => {
 		if (localStorage.getItem('token') !== null) {

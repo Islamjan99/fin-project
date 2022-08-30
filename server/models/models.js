@@ -23,24 +23,29 @@ const BasketDevice = sequelize.define('basket_device', {
 
 const Device = sequelize.define('device', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-	name: { type: DataTypes.STRING, unique: true, allowNull: false },
+	name: { type: DataTypes.STRING, unique: false, allowNull: false },
 	price: { type: DataTypes.INTEGER, allowNull: false },
 	rating: { type: DataTypes.INTEGER, defaultValue: 5 },
 	discount: { type: DataTypes.INTEGER, defaultValue: 0 },
 	img: { type: DataTypes.STRING, allowNull: false },
+	typeId: { type: DataTypes.INTEGER, allowNull: false },
+	categoryId: { type: DataTypes.INTEGER, allowNull: false },
+	floorId: { type: DataTypes.INTEGER, allowNull: false },
 })
 
 const Category = sequelize.define('category', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-	name: { type: DataTypes.STRING, unique: true, allowNull: false },
+	name: { type: DataTypes.STRING, unique: false, allowNull: true },
+	floorId: { type: DataTypes.STRING, unique: false, allowNull: true },
 })
 
 const Type = sequelize.define('type', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-	name: { type: DataTypes.STRING, unique: true, allowNull: false },
+	name: { type: DataTypes.STRING, unique: false, allowNull: false },
+	categoryId: { type: DataTypes.STRING, unique: true, allowNull: true },
 })
 
-const Brand = sequelize.define('brand', {
+const Floor = sequelize.define('floor', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	name: { type: DataTypes.STRING, unique: true, allowNull: false },
 })
@@ -54,10 +59,6 @@ const DeviceInfo = sequelize.define('device_info', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	title: { type: DataTypes.STRING, allowNull: false },
 	description: { type: DataTypes.STRING, allowNull: false },
-})
-
-const TypeBrand = sequelize.define('type_brand', {
-	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 })
 
 const History = sequelize.define('History', {
@@ -84,17 +85,11 @@ History.belongsTo(User)
 Basket.hasMany(BasketDevice)
 BasketDevice.belongsTo(Basket)
 
-Category.hasMany(Type)
-Type.belongsTo(Category)
-
 Type.hasMany(Device)
 Device.belongsTo(Type)
 
 Category.hasMany(Device)
 Device.belongsTo(Category)
-
-Brand.hasMany(Device)
-Device.belongsTo(Brand)
 
 Device.hasMany(Rating)
 Rating.belongsTo(Device)
@@ -105,18 +100,14 @@ BasketDevice.belongsTo(Device)
 Device.hasMany(DeviceInfo, { as: 'info' })
 DeviceInfo.belongsTo(Device)
 
-Type.belongsToMany(Brand, { through: TypeBrand })
-Brand.belongsToMany(Type, { through: TypeBrand })
-
 module.exports = {
 	User,
 	Basket,
 	BasketDevice,
 	Device,
 	Type,
-	Brand,
+	Floor,
 	Rating,
-	TypeBrand,
 	DeviceInfo,
 	History,
 	Category,

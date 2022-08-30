@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import style from './Shop.module.css'
 import { observer } from 'mobx-react-lite'
 import { Context } from '../index'
-import { fetchBrands, fetchDevices, fetchTypes } from '../Http/DeviceAPI'
+import { fetchDevices, fetchFloors, fetchTypes } from '../Http/DeviceAPI'
 import slide1 from './Group 150.png'
 import slide2 from './Group 297.png'
 import slide3 from './Group 157.png'
@@ -19,7 +19,7 @@ const Shop = observer(() => {
 
 	useEffect(() => {
 		fetchTypes().then(data => device.setTypes(data))
-		fetchBrands().then(data => device.setBrands(data))
+		fetchFloors().then(data => device.setFloors(data))
 		fetchDevices(null, null, 1, 2).then(data => {
 			device.setDevices(data.rows)
 			device.setTotalCount(data.count)
@@ -29,14 +29,14 @@ const Shop = observer(() => {
 	useEffect(() => {
 		fetchDevices(
 			device.selectedType.id,
-			device.selectedBrand.id,
+			device.selectedFloors.id,
 			device.page,
 			2
 		).then(data => {
 			device.setDevices(data.rows)
 			device.setTotalCount(data.count)
 		})
-	}, [device, device.page, device.selectedType, device.selectedBrand])
+	}, [device, device.page, device.selectedType, device.selectedFloors])
 
 	return (
 		<div className={style.shop__wrapper}>

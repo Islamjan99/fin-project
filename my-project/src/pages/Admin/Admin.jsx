@@ -14,13 +14,6 @@ const Admin = () => {
 			<Button
 				variant={'outline-success'}
 				className='mt-4 p-2'
-				onClick={() => setTypeVisible(true)}
-			>
-				Добавить тип
-			</Button>
-			<Button
-				variant={'outline-success'}
-				className='mt-4 p-2'
 				onClick={() => setBrandVisible(true)}
 			>
 				Добавить категорию
@@ -28,10 +21,18 @@ const Admin = () => {
 			<Button
 				variant={'outline-success'}
 				className='mt-4 p-2'
+				onClick={() => setTypeVisible(true)}
+			>
+				Добавить тип
+			</Button>
+
+			{/* <Button
+				variant={'outline-success'}
+				className='mt-4 p-2'
 				onClick={() => setDeviceVisible(true)}
 			>
-				Добавить продукт
-			</Button>
+				Добавить товар
+			</Button> */}
 			<CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)} />
 			<CreateDevice
 				show={deviceVisible}
