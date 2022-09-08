@@ -18,7 +18,7 @@ const CreateDevice = observer(({ show, onHide }) => {
 	const [price, setPrice] = useState()
 	const [file, setFile] = useState(null)
 	const [info, setInfo] = useState([])
-
+	const [floor, setFloor] = useState({})
 	const [discount, setDiscount] = useState(0)
 	const [handleChange, setHandleChange] = useState(false)
 
@@ -47,14 +47,16 @@ const CreateDevice = observer(({ show, onHide }) => {
 		formData.append('name', name)
 		formData.append('price', `${price}`)
 		formData.append('img', file)
-		formData.append('brandId', device.selectedBrand.id)
-		formData.append('typeId', device.selectedType.id)
-		formData.append('categoryId', device.selectedCategory.id)
+		formData.append('floors', device.selectedfloor.id)
+		formData.append('types', device.selectedType.id)
+		formData.append('categorys', device.selectedCategory.id)
 		formData.append('info', JSON.stringify(info))
 		formData.append('discount', discount)
 		createDevice(formData).then(data => onHide())
 	}
-
+	const floors = str => {
+		console.log(str)
+	}
 	return (
 		<Modal show={show} onHide={onHide} centered>
 			<Modal.Header closeButton>
@@ -64,51 +66,6 @@ const CreateDevice = observer(({ show, onHide }) => {
 			</Modal.Header>
 			<Modal.Body>
 				<Form>
-					<Dropdown className='mt-2 mb-2'>
-						<Dropdown.Toggle>
-							{device.selectedType.name || 'Выберите Тип'}
-						</Dropdown.Toggle>
-						<Dropdown.Menu>
-							{device.types.map(type => (
-								<Dropdown.Item
-									onClick={() => device.setSelectedType(type)}
-									key={type.id}
-								>
-									{type.name}
-								</Dropdown.Item>
-							))}
-						</Dropdown.Menu>
-					</Dropdown>
-					<Dropdown className='mt-2 mb-2'>
-						<Dropdown.Toggle>
-							{device.setSelectedFloor.name || 'Выберите пол'}
-						</Dropdown.Toggle>
-						<Dropdown.Menu>
-							{device.floors.map(brand => (
-								<Dropdown.Item
-									onClick={() => device.setSelectedFloor(brand)}
-									key={brand.id}
-								>
-									{brand.name}
-								</Dropdown.Item>
-							))}
-						</Dropdown.Menu>
-					</Dropdown>
-					<Dropdown className='mt-2 mb-2'>
-						<Dropdown.Toggle>
-							{device.selectedCategory.name || 'Выберите Категорию'}
-						</Dropdown.Toggle>
-						<Dropdown.Menu>
-							{device.categorys.map(category => (
-								<Dropdown.Item
-									onClick={() => device.setSelectedCategory(category)}
-									key={category.id}
-								>
-									{category.name}
-								</Dropdown.Item>
-							))}
-						</Dropdown.Menu>
-					</Dropdown>
 					<Dropdown className='mt-2 mb-2'>
 						<div className={style.checkbox__block}>
 							<p className={style.checkboxP}>Продукт со скидкой?</p>
@@ -122,6 +79,31 @@ const CreateDevice = observer(({ show, onHide }) => {
 							</div>
 						</div>
 					</Dropdown>
+					<Dropdown className='mt-2 mb-2'>
+						<Dropdown.Toggle>
+							{floor.name || 'К какому полу предназначен товар'}
+						</Dropdown.Toggle>
+						<Dropdown.Menu>
+							<Dropdown.Item onClick={() => floors('Мужской')}>
+								Мужской
+							</Dropdown.Item>
+							<Dropdown.Item onClick={() => floors('Женский')}>
+								Женский
+							</Dropdown.Item>
+						</Dropdown.Menu>
+					</Dropdown>
+					<Form.Control
+						value={name}
+						onChange={e => setName(e.target.value)}
+						className='mt-3'
+						placeholder='Введите тип'
+					/>
+					<Form.Control
+						value={name}
+						onChange={e => setName(e.target.value)}
+						className='mt-3'
+						placeholder='Введите название товара'
+					/>
 					<Form.Control
 						value={name}
 						onChange={e => setName(e.target.value)}

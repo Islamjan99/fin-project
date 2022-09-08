@@ -28,21 +28,20 @@ const Device = sequelize.define('device', {
 	rating: { type: DataTypes.INTEGER, defaultValue: 5 },
 	discount: { type: DataTypes.INTEGER, defaultValue: 0 },
 	img: { type: DataTypes.STRING, allowNull: false },
-	typeId: { type: DataTypes.INTEGER, allowNull: false },
-	categoryId: { type: DataTypes.INTEGER, allowNull: false },
-	floorId: { type: DataTypes.INTEGER, allowNull: false },
+	types: { type: DataTypes.STRING, allowNull: false },
+	categorys: { type: DataTypes.STRING, allowNull: false },
+	floors: { type: DataTypes.STRING, allowNull: false },
 })
 
 const Category = sequelize.define('category', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	name: { type: DataTypes.STRING, unique: false, allowNull: true },
-	floorId: { type: DataTypes.STRING, unique: false, allowNull: true },
 })
 
 const Type = sequelize.define('type', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	name: { type: DataTypes.STRING, unique: false, allowNull: false },
-	categoryId: { type: DataTypes.STRING, unique: true, allowNull: true },
+	category: { type: DataTypes.STRING, unique: false, allowNull: false },
 })
 
 const Floor = sequelize.define('floor', {
@@ -84,12 +83,6 @@ History.belongsTo(User)
 
 Basket.hasMany(BasketDevice)
 BasketDevice.belongsTo(Basket)
-
-Type.hasMany(Device)
-Device.belongsTo(Type)
-
-Category.hasMany(Device)
-Device.belongsTo(Category)
 
 Device.hasMany(Rating)
 Rating.belongsTo(Device)

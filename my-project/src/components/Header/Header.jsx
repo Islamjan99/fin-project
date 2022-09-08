@@ -15,6 +15,7 @@ import {
 	fetchCategorys,
 	fetchDevicees,
 	fetchDevices,
+	fetchFloors,
 	fetchTypes,
 } from '../../Http/DeviceAPI'
 import { authuser, getRole } from '../../Http/UserAPI'
@@ -35,21 +36,13 @@ const Header = observer(() => {
 	useEffect(() => {
 		fetchTypes().then(data => device.setTypes(data))
 		fetchCategorys().then(data => device.setCategorys(data))
+		fetchFloors().then(data => device.setFloors(data))
 		getRole().then(data => user.setRoleToken(data.token))
 		fetchDevicees().then(data => device.setDevicees(data.rows))
-		fetchDevicees(device.page, 9).then(data => {
+		fetchDevices(device.page, 9).then(data => {
 			device.setDevicees(data.rows)
 		})
-		fetchDevices(
-			device.selectedType.id,
-			// device.selectedFloor.id,
-			device.page,
-			9
-		).then(data => {
-			device.setDevices(data.rows)
-			device.setTotalCount(data.count)
-		})
-	}, [device, device.page, device.selectedType, device.setSelectedFloor])
+	}, [device, device.page, device.selectedType])
 
 	useEffect(() => {
 		if (localStorage.getItem('token') !== null) {

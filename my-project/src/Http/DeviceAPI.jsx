@@ -5,6 +5,7 @@ export const fetchFloors = async () => {
 	return data
 }
 export const createCategory = async category => {
+	console.log(category)
 	const { data } = await $authHost.post('api/category', category)
 	return data
 }
@@ -38,7 +39,7 @@ export const fetchDevices = async (typeId, brandId, page, limit = 5) => {
 			limit,
 		},
 	})
-	console.log(data)
+	// console.log(data)
 	data.rows.map(i => {
 		if (i.discount >= 1) {
 			let item = (i.price / 100) * i.discount

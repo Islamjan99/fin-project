@@ -11,13 +11,13 @@ const Admin = () => {
 
 	return (
 		<Container className=' d-flex flex-column'>
-			<Button
+			{/* <Button
 				variant={'outline-success'}
 				className='mt-4 p-2'
 				onClick={() => setBrandVisible(true)}
 			>
 				Добавить категорию
-			</Button>
+			</Button> */}
 			<Button
 				variant={'outline-success'}
 				className='mt-4 p-2'
@@ -26,13 +26,13 @@ const Admin = () => {
 				Добавить тип
 			</Button>
 
-			{/* <Button
+			<Button
 				variant={'outline-success'}
 				className='mt-4 p-2'
 				onClick={() => setDeviceVisible(true)}
 			>
 				Добавить товар
-			</Button> */}
+			</Button>
 			<CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)} />
 			<CreateDevice
 				show={deviceVisible}

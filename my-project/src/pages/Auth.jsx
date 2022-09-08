@@ -21,9 +21,6 @@ const Auth = observer(() => {
 	const [repeatPassword, setRepeatPassword] = useState('')
 	const [showPassword, setShowPassword] = useState(false)
 	const [showRepeatPassword, setShowRepeatPassword] = useState(false)
-	const [phone, setPhone] = useState('')
-	const [name, setName] = useState('')
-	const [lastName, setLastName] = useState('')
 	const [users, setUsers] = useState({})
 
 	const click = async () => {
@@ -31,7 +28,8 @@ const Auth = observer(() => {
 			let data
 			if (isLogin) {
 				data = await login(email, password)
-				document.location.reload()
+				console.log(data)
+				// document.location.reload()
 			} else {
 				data = await registration(users)
 				console.log(data)

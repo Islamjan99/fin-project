@@ -10,16 +10,16 @@ const CreateType = observer(({ show, onHide }) => {
 	const [value, setValue] = useState('')
 
 	const addType = () => {
-		createType({ name: value, categoryId: device.selectedCategory.id }).then(
-			data => {
-				setValue('')
-				onHide()
-			}
-		)
+		createType({ name: value }).then(data => {
+			setValue('')
+			onHide()
+		})
 
 		onHide()
 	}
-
+	const setCategory = floor => {
+		device.setSelectedFloor(floor)
+	}
 	return (
 		<Modal show={show} onHide={onHide} centered>
 			<Modal.Header closeButton>
@@ -28,21 +28,6 @@ const CreateType = observer(({ show, onHide }) => {
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				<Dropdown className='mt-2 mb-2'>
-					<Dropdown.Toggle>
-						{device.selectedCategory.name || 'Выберите Категорию'}
-					</Dropdown.Toggle>
-					<Dropdown.Menu>
-						{device.categorys.map(category => (
-							<Dropdown.Item
-								onClick={() => device.setSelectedCategory(category)}
-								key={category.id}
-							>
-								{category.name}
-							</Dropdown.Item>
-						))}
-					</Dropdown.Menu>
-				</Dropdown>
 				<Form>
 					<Form.Control
 						value={value}

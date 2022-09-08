@@ -6,6 +6,7 @@ import DeviceList from '../DeviceList/DeviceList'
 import { fetchDevices, fetchTypes } from '../../Http/DeviceAPI'
 import Pagin from '../Pagin'
 import { useLocation } from 'react-router-dom'
+import P from '../UI/P'
 
 const Catalog = observer(() => {
 	const locations = useLocation()
@@ -15,22 +16,28 @@ const Catalog = observer(() => {
 	const [product, setProduct] = useState([])
 
 	const getInfo = () => {
-		setCategorys(device.categorys)
 		console.log(device.categorys)
 	}
 
 	useEffect(() => {
 		setLocation(locations.pathname)
-		if (categorys.length < 1) {
-			getInfo()
-		}
-	}, [categorys])
+
+		getInfo()
+	}, [])
 
 	return (
 		<div className={style.container}>
-			<div className={style.typeBar}>
-				<Pagin />
+			<div className={style.categoryBar}>
+				{device.categorys.map(item => {
+					return <P>{item.name}</P>
+				})}
 			</div>
+			<div className={style.typeBar}>
+				{device.types.map(item => {
+					return <P>{item.name}</P>
+				})}
+			</div>
+			<Pagin />
 		</div>
 	)
 })

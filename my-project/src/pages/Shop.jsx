@@ -29,7 +29,7 @@ const Shop = observer(() => {
 	useEffect(() => {
 		fetchDevices(
 			device.selectedType.id,
-			device.selectedFloors.id,
+			// device.selectedFloors.id,
 			device.page,
 			2
 		).then(data => {

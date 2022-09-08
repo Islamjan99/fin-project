@@ -47,7 +47,7 @@ export default class DeviceStore {
 		this._selectedType = skins
 	}
 	setSelectedFloor(floors) {
-		this._selectedFloors = floors
+		this._selectedFloor = floors
 	}
 	setSelectedCategory(category) {
 		this._selectedCategory = category
@@ -136,7 +136,7 @@ export default class DeviceStore {
 		return this._skins
 	}
 	get selectedFloors() {
-		return this._selectedFloors
+		return this._selectedFloor
 	}
 	get selectedCategory() {
 		return this._selectedCategory
